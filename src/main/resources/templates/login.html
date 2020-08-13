@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login or sign up</title>
+
+    <style>
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            }
+    </style>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/login">LOGIN</a>
+    <a href="/register">SIGN-UP</a>
+</div>
+
+<div class="container">
+
+    <form method="post" th:action="@{/login}" class="form-group">
+
+        <div class="container">
+            <div th:if="${param.error}">
+                <div class="alert">
+                    Invalid username or password.
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${param.logout}">
+            <div class="alert">
+                You have successfully logged out.
+            </div>
+        </div>
+
+        <h2 class="form-heading">Log in</h2>
+
+        <div class="form-group ">
+            <span></span>
+            <input name="username" type="text" class="form-control" placeholder="Username"
+                   autofocus="true"/>
+            <input name="password" type="password" class="form-control" placeholder="Password"/>
+            <span></span>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+        </div>
+
+        <div>
+            <a href="/reset_password">forgot password?</a>
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

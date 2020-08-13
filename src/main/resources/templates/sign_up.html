@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SIGN UP</title>
+
+    <style>
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <form method="post" th:action="@{/register}" class="form-group" th:object="${user}">
+        <h2>Register your account</h2>
+
+        <!--  success message  -->
+        <div class="container">
+            <div th:if="${param.success}">
+                <div class="alert">
+                    You have successfully registered. Please login to your account and have a happy shopping experience!
+                </div>
+            </div>
+        </div>
+
+        <div class="control">
+            <label for="name">Full name<span class="required">*</span></label>
+            <input id="name" type="text" th:field="*{name}"/>
+            <div class="control">
+                <label for="password">Password</label>
+                <input id="password" type="password" th:field="*{password}"></input>
+            </div>
+            <div class="control">
+                <label for="email_id">email id</label>
+                <span class="required">*</span>
+                <input id="email_id"
+                       type="text" th:field="*{emailId}"></input>
+            </div>
+            <div class="control">
+                <label for="mobile_no">Mobile no.</label>
+                <span class="required">*</span>
+                <input id="mobile_no"
+                       type="text" th:field="*{mobileNo}"></input>
+            </div>
+            <div class="control">
+                <label for="Residency_address">Residency Address</label>
+                <span class="required">*</span>
+                <input id="Residency_address" type="text" th:filed="*{address}"></input>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+</body>
+</html>
